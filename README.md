@@ -2,6 +2,13 @@
 
 CafeBook is a cafe-hopping wishlist web application that lets cafe hoppers keep track of cafes they want to visit. They can manage cafe details, search for cafes, and filter and sort the list to find their next cafe destination.
 
+## Requirements
+1. On a page, display JSON data in a table
+2. On the same page, create an 'Add Item' button that opens a form to allow users to enter data
+3. Ensure the form fields have validation
+4. Upon submitting, the data in the form should be added to the table in (1)
+5. On the same page, have a button that can switch the table in (1) from light mode to dark mode and vice versa. Ensure that the mode is cached i.e. the dark mode stays the same after closing the broswer and re-launching the application again.
+
 ## Features
 
 - **Cafe Management** – Add and manage cafe information.
