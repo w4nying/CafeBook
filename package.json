@@ -9,6 +9,7 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "server": "node server.cjs",
+    "start": "node server.cjs",
     "dev:all": "concurrently \"npm run dev\" \"npm run server\""
   },
   "dependencies": {

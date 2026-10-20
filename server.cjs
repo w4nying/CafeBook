@@ -4,7 +4,7 @@ const fs = require("fs/promises");
 const path = require("path");
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 const dataPath = path.join(
   __dirname,
@@ -110,6 +110,6 @@ app.post("/api/cafes", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`CafeBook API running at http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running on port ${PORT}`);
 });
