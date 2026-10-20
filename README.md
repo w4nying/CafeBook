@@ -113,11 +113,6 @@ CafeBook/
   http://localhost:5173
 
    ```
-  Backend:
-   ```bash
-  http://localhost:3001
-
-   ```
 
 ## Usage
 
