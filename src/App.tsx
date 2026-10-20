@@ -24,7 +24,7 @@ const API_BASE = (
   import.meta.env.VITE_API_URL ?? "http://localhost:3001"
 ).replace(/\/$/, "");
 
-// api to fetch and add cafes from and to cafe.json
+// api to fetch and add cafes from and to cloud cafe.json
 const API_URL = `${API_BASE}/api/cafes`;
 
 // default values for forms
@@ -75,20 +75,52 @@ function App() {
   // -------------------------  APIs ------------------------- 
   // load cafes from cafes.json
   useEffect(() => {
+    // const loadCafes = async () => {
+    //   try {
+    //     const response = await fetch(API_URL);
+
+    //     if (!response.ok) {
+    //       throw new Error("Failed to load cafes.");
+    //     }
+
+    //     const data: Cafe[] = await response.json();
+    //     setCafes(data);
+    //   } catch {
+    //     setApiError(
+    //       "No cafes available!"
+    //     );
+    //   } finally {
+    //     setLoading(false);
+    //   }
+    // };
+
+    // loadCafes();
     const loadCafes = async () => {
       try {
+        // load from the backend first
         const response = await fetch(API_URL);
 
         if (!response.ok) {
-          throw new Error("Failed to load cafes.");
+          throw new Error("Failed to load cafes from backend.");
         }
 
         const data: Cafe[] = await response.json();
         setCafes(data);
       } catch {
-        setApiError(
-          "No cafes available!"
-        );
+        // if server suspended, load the local JSON file instead
+        try {
+          const response = await fetch("/cafes.json");
+
+          if (!response.ok) {
+            throw new Error("Failed to load local cafes.json.");
+          }
+
+          const data: Cafe[] = await response.json();
+          setCafes(data);
+          setApiError("");
+        } catch {
+          setApiError("No cafes available!");
+        }
       } finally {
         setLoading(false);
       }
