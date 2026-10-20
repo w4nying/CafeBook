@@ -108,10 +108,14 @@ CafeBook/
    ```
 
 5. Open the local URL displayed in your terminal:
-
+  Frontend:
    ```text
-  - Frontend: http://localhost:5173
-  - Backend: http://localhost:3001
+  http://localhost:5173
+
+   ```
+   Backend:
+   ```text
+  http://localhost:3001
 
    ```
 
