@@ -2,6 +2,10 @@
 
 CafeBook is a cafe-hopping wishlist web application that lets cafe hoppers keep track of cafes they want to visit. They can manage cafe details, search for cafes, and filter and sort the list to find their next cafe destination.
 
+**Live demo:** https://cafebook-web.onrender.com/
+> Running on Render's free tier and sleeps when idle, so first load can take up to 30-60s.
+> Cafes added on live demo are stored in a JSON file and reset whenever the server restarts/ redeploys.
+
 ## Requirements✅
 1. On a page, display JSON data in a table
 2. On the same page, create an 'Add Item' button that opens a form to allow users to enter data
@@ -34,10 +38,18 @@ CafeBook is a cafe-hopping wishlist web application that lets cafe hoppers keep 
 - CORS
 
 **Data Storage**
-- JSON file (`cafes.json`)
+- JSON file (`src/data/cafes.json`)
 
-**API Used**
-- https://countries.dev/
+**External API**
+- [countries.dev](https://countries.dev/) for list of countries in form
+
+**Hosting**
+- Render (Static Site for the frontend, Web Service for the backend)
+
+## API Endpoints
+Base URL (production): `https://cafebook-api.onrender.com`
+
+'name', 'country', 'address', 'priceRange' field are required.
 
 ## Project Skeleton
 
@@ -98,7 +110,9 @@ CafeBook/
 5. Open the local URL displayed in your terminal:
 
    ```text
-   http://localhost:5173
+  - Frontend: http://localhost:5173
+  - Backend: http://localhost:3001
+
    ```
 
 ## Usage
