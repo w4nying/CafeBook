@@ -13,7 +13,16 @@ const dataPath = path.join(
   "cafes.json"
 );
 
-app.use(cors());
+// set frontend on render
+const allowedOrigins = process.env.FRONTEND_URL
+  ? process.env.FRONTEND_URL.split(",").map((o) => o.trim().replace(/\/$/, ""))
+  : null;
+
+app.use(
+  cors({
+    origin: allowedOrigins ?? true,
+  })
+);
 app.use(express.json());
 
 // Read all cafes from the JSON file
@@ -21,6 +30,19 @@ async function readCafes() {
   const data = await fs.readFile(dataPath, "utf8");
   return JSON.parse(data);
 }
+
+// serialize read-modify-write operations - no duplicates
+let writeQueue = Promise.resolve();
+function withWriteLock(task) {
+  const run = writeQueue.then(task, task);
+  writeQueue = run.catch(() => {});
+  return run;
+}
+
+// GET /api/health (used by Render's health check)
+app.get("/api/health", (req, res) => {
+  res.json({ ok: true });
+});
 
 // GET /api/cafes
 app.get("/api/cafes", async (req, res) => {
