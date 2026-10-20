@@ -69,7 +69,7 @@ function App() {
   const [minRating, setMinRating] = useState("");
 
   //sort
-  const [sortColumn, setSortColumn] = useState<keyof Cafe>("name");
+  const [sortColumn, setSortColumn] = useState<keyof Cafe>("id");
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
 
   // -------------------------  APIs ------------------------- 
