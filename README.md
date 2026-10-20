@@ -107,12 +107,11 @@ CafeBook/
    npm run dev:all
    ```
 
-5. Open the local URL displayed in your terminal:
-  Frontend:
-   ```bash
-  http://localhost:5173
+5. Open the local URLs displayed in your terminal:
 
-   ```
+   - Frontend: `http://localhost:5173`
+   - Backend API: `http://localhost:3001`
+
 
 ## Usage
 
