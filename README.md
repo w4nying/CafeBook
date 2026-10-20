@@ -1,8 +1,8 @@
-# ![CafeBook Icon](public/CafeIcon.png) CafeBook
+# CafeBook
 
 CafeBook is a cafe-hopping wishlist web application that lets cafe hoppers keep track of cafes they want to visit. They can manage cafe details, search for cafes, and filter and sort the list to find their next cafe destination.
 
-## ✨ Features
+## Features
 
 - **Cafe Management** – Add and manage cafe information.
 - **Search** – Search cafes by name, country, or address.
@@ -13,7 +13,7 @@ CafeBook is a cafe-hopping wishlist web application that lets cafe hoppers keep 
 - **Google Maps Integration** – Open cafe addresses in Google Maps.
 - **Responsive Layout** – Browse cafes on different screen sizes.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 **Frontend**
 - React
@@ -29,7 +29,7 @@ CafeBook is a cafe-hopping wishlist web application that lets cafe hoppers keep 
 **Data Storage**
 - JSON file (`cafes.json`)
 
-## 📁 Project Skeleton
+## Project Skeleton
 
 ```text
 CafeBook/
@@ -51,7 +51,7 @@ CafeBook/
 └── README.md
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -91,7 +91,7 @@ CafeBook/
    http://localhost:5173
    ```
 
-## 📖 Usage
+## Usage
 
 1. Launch CafeBook in your browser.
 2. Browse the cafe list.
@@ -104,6 +104,6 @@ CafeBook/
 9. Open a cafe's address in Google Maps to explore its location.
 
 
-## 👩‍💻 Author
+## Author
 
 Created by **HUANG WAN YING**.
