@@ -19,8 +19,13 @@ type CafeFormData = {
 // declare validation error
 type FormErrors = Partial<Record<keyof CafeFormData, string>>;
 
+// set VITE_API_URL, fallback to local server in dev
+const API_BASE = (
+  import.meta.env.VITE_API_URL ?? "http://localhost:3001"
+).replace(/\/$/, "");
+
 // api to fetch and add cafes from and to cafe.json
-const API_URL = "http://localhost:3001/api/cafes";
+const API_URL = `${API_BASE}/api/cafes`;
 
 // default values for forms
 const initialFormData: CafeFormData = {
