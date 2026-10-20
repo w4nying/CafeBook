@@ -1,5 +1,4 @@
-
-# ☕ CafeBook
+# ![CafeBook Icon](public/CafeIcon.png) CafeBook
 
 CafeBook is a cafe-hopping wishlist web application that lets cafe hoppers keep track of cafes they want to visit. They can manage cafe details, search for cafes, and filter and sort the list to find their next cafe destination.
 
@@ -30,7 +29,7 @@ CafeBook is a cafe-hopping wishlist web application that lets cafe hoppers keep 
 **Data Storage**
 - JSON file (`cafes.json`)
 
-## 📁 Project Structure
+## 📁 Project Skeleton
 
 ```text
 CafeBook/
