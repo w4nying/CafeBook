@@ -1,0 +1,499 @@
+/* setting theme colors and basic fonts */
+:root {
+  /* reusuable throughout */
+  --cream: #f8f3eb;
+  --cream-dark: #eee3d3;
+  --card: #fffdf9;
+  --brown: #493629;
+  --brown-light: #765b47;
+  --caramel: #a87850;
+  --caramel-hover: #8d6343;
+  --border: #e3d4c2;
+  --muted: #8c7a6b;
+  --error: #a33d32;
+  
+  font-family: "Inter", "Segoe UI", sans-serif;
+  color: var(--brown);
+  background: #f8f3eb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  /* bg using cream color as declared above */
+  background: var(--cream);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+/* -------------------------  Main layout ------------------------- */
+
+.app {
+  width: min(1400px, 100%);
+  margin: 0 auto;
+  padding: 48px 36px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 36px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+
+.app-header h1 {
+  margin: 0;
+  /* header using cream color as declared above */
+  color: var(--brown);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+}
+
+/* sub header */
+.app-header p {
+  margin: 10px 0 0;
+  color: var(--brown-light);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 12px 20px;
+  color: #fffaf3;
+  background: var(--caramel);
+  font-weight: 600;
+}
+
+button:hover:not(:disabled) {
+  background: var(--caramel-hover);
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.add-cafe-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+/* -------------------------  Form  ------------------------- */
+
+.form-section {
+    position: relative;
+  }
+
+.form-section,
+.cafe-section {
+  margin-bottom: 32px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--card);
+}
+
+.form-section h2,
+.cafe-section h2 {
+  margin: 0;
+  color: var(--brown);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+}
+
+.form-section form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  color: var(--brown);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  min-height: 46px;
+  padding: 11px 13px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  color: var(--brown);
+  background: var(--card);
+}
+
+.form-group input::placeholder {
+  color: #b4a394;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--caramel);
+}
+
+.form-message {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.field-error,
+.error-message {
+  color: var(--error);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.field-error {
+  margin: 0;
+}
+
+.error-message {
+  margin: 0 0 20px;
+  padding: 12px 16px;
+  border: 1px solid #e8c1b8;
+  border-radius: 10px;
+  background: #fff0eb;
+}
+
+.form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.form-actions button[type="button"] {
+  border: 1px solid var(--border);
+  color: var(--brown);
+  background: var(--cream-dark);
+}
+
+.form-actions button[type="button"]:hover:not(:disabled) {
+  background: #e5d5c2;
+}
+
+.close-form-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--brown);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* -------------------------- Cafe list -------------------------- */
+
+.cafe-section {
+  overflow: hidden;
+}
+
+.cafe-count {
+  margin: 8px 0 22px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* -------------------- light mode  --------------------  */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  white-space: nowrap;
+}
+
+thead {
+  background: var(--cream-dark);
+}
+
+th {
+  cursor: pointer;
+  user-select: none;
+  padding: 15px 18px;
+  color: var(--brown);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+td {
+  padding: 16px 18px;
+  border-top: 1px solid #eee5d9;
+  color: var(--brown-light);
+  font-size: 0.9rem;
+}
+
+tbody tr {
+  background: var(--card);
+}
+
+tbody tr:hover {
+  background: #f9f0e5;
+}
+
+td:nth-child(2) {
+  color: var(--brown);
+  font-weight: 600;
+}
+th:hover {
+  opacity: 0.75;
+}
+
+button:focus-visible {
+  outline: 3px solid #cba984;
+  outline-offset: 3px;
+}
+
+/* -------------------------  dark mode ----------------------- */
+.table-container.dark-mode {
+  border-color: #48423d;
+}
+
+.table-container.dark-mode thead {
+  background: #38332f;
+}
+
+.table-container.dark-mode th {
+  color: #f2eee8;
+}
+
+.table-container.dark-mode td {
+  color: #d6ccc1;
+  border-top-color: #48423d;
+}
+
+.table-container.dark-mode tbody tr {
+  background: #252525;
+}
+
+.table-container.dark-mode tbody tr:hover {
+  background: #38332f;
+}
+
+.table-container.dark-mode td:nth-child(2) {
+  color: #ffffff;
+}
+
+.table-container.dark-mode td a {
+  color: #d9b58c;
+}
+
+
+
+/* -------------------------  toggle buttons  ------------------------------ */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--brown);
+  font-weight: 600;
+}
+
+/* -------------------------  pagination  ------------------------------ */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.pagination button {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--card); 
+  color: var(--brown);
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background: var(--brown);
+  color: white;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* -------------------------- search bar  -------------------------- */
+/* Sidebar and table layout */
+.cafe-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* Filter sidebar */
+.filter-sidebar {
+  width: 200px;
+  flex-shrink: 0;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+}
+
+.filter-sidebar h3 {
+  margin-top: 0;
+}
+
+.filter-sidebar label {
+  display: block;
+  margin-top: 16px;
+  margin-bottom: 6px;
+  color: var(--brown);
+}
+
+.filter-sidebar select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--card);
+  color: var(--brown);
+}
+
+.filter-sidebar button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 9px;
+  cursor: pointer;
+}
+
+/* Main table area */
+.cafe-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.search-container {
+  margin-bottom: 16px;
+}
+
+.search-container input {
+  width: 100%;
+  max-width: 800px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--card);
+  color: var(--brown);
+}
+
+
+/* -------------------------- Responsiveness -------------------------- */
+
+@media (max-width: 700px) {
+  .app {
+    padding: 28px 16px;
+  }
+
+  .app-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 24px;
+    padding-bottom: 22px;
+  }
+
+  .app-header button {
+    width: 100%;
+  }
+
+  .form-section {
+    position: relative;
+  }
+
+  .form-section,
+  .cafe-section {
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+
+  .form-section form {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .form-hint,
+  .form-actions {
+    grid-column: auto;
+  }
+
+  th,
+  td {
+    padding: 13px 14px;
+  }
+
+  /* stack sidebar on small screen */
+  .cafe-layout {
+    flex-direction: column;
+  }
+
+  .filter-sidebar {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .cafe-content {
+    width: 100%;
+  }
+}
